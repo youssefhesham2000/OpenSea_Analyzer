@@ -1,0 +1,33 @@
+{
+  "name": "open sea scraber",
+  "description": "Build an Extension!",
+  "version": "1.0",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["storage", "activeTab", "scripting","tabs"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "/images/opensea16.png",
+      "32": "/images/opensea32.png",
+      "48": "/images/opensea48.png",
+      "128": "/images/opensea128.png"
+    }
+  },
+  "icons": {
+    "16": "/images/opensea16.png",
+    "32": "/images/opensea32.png",
+    "48": "/images/opensea48.png",
+    "128": "/images/opensea128.png"
+  },
+  "content_scripts":[
+    {
+      "matches":["<all_urls>"],
+      "js":["SearchFilter.js","scraber.js"],
+      "all_frames": true
+    }
+  ],
+  "options_page": "options.html"
+}
